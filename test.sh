@@ -4,23 +4,19 @@ RED='\033[0;31m'
 GREEN='\033[0;32m'
 NC='\033[0m'
 
-function to_print()
-{
+function to_print() {
 	echo "$@"
 }
 
-function to_exec_print()
-{
+function to_exec_print() {
 	to_print "$@"
 	"$@"
 }
 
-function to_check_exec_print()
-{
+function to_check_exec_print() {
 	to_print "$@"
 	"$@" > result
-	if < result ./checker_rush01 "$2"
-	then
+	if < result ./checker_rush01 "$2"; then
 		echo -n -e "${GREEN}"
 	else
 		echo -n -e "${RED}"
@@ -30,8 +26,7 @@ function to_check_exec_print()
 	rm result
 }
 
-function get_authors()
-{
+function get_authors() {
 	grep -rF "by" . |& grep -v "./test.sh"
 	git log --all |& grep "Author:"
 }
@@ -41,7 +36,7 @@ to_print "|             Setup                         |"
 to_print "============================================="
 
 to_exec_print rm ./checker_rush01
-to_exec_print wget https://github.com/alisterd51/checker_rush01/releases/download/v1.0.2/checker_rush01
+to_exec_print wget https://github.com/alisterd51/checker_rush01/releases/download/v1.0.3/checker_rush01
 to_exec_print chmod +x ./checker_rush01
 
 to_print "============================================="
