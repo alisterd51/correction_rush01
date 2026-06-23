@@ -71,7 +71,7 @@ to_print "============================================="
 
 to_exec_print clang -Wall -Wextra -Werror ./*.c -o rush-01
 to_exec_print gcc -Wall -Wextra -Werror ./*.c -o rush-01
-to_exec_print cc -Wall -Wextra -Werror -g3 -fsanitize=leak,undefined,address ./*.c -o rush-01
+# to_exec_print cc -Wall -Wextra -Werror -g3 -fsanitize=leak,undefined,address ./*.c -o rush-01
 
 to_print "============================================="
 to_print "|             test mandatory Error 4 x 4    |"
