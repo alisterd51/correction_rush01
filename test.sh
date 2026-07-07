@@ -1,34 +1,34 @@
-#!/bin/bash
+#!/bin/sh
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 NC='\033[0m'
 
-function to_print() {
+to_print() {
 	echo "$@"
 }
 
-function to_exec_print() {
+to_exec_print() {
 	to_print "$@"
 	"$@"
 }
 
-function to_check_exec_print() {
+to_check_exec_print() {
 	to_print "$@"
 	"$@" > result
 	if < result ./checker_rush01 "$2"; then
-		echo -n -e "${GREEN}"
+		printf '%b' "${GREEN}"
 	else
-		echo -n -e "${RED}"
+		printf '%b' "${RED}"
 	fi
 	cat -e result
-	echo -n -e "${NC}"
+	printf '%b' "${NC}"
 	rm result
 }
 
-function get_authors() {
-	grep -rF "by" . |& grep -v "./test.sh"
-	git log --all |& grep "Author:"
+get_authors() {
+	grep -rF "by" . 2>&1 | grep -v "./test.sh"
+	git log --all 2>&1 | grep "Author:"
 }
 
 to_print "============================================="
