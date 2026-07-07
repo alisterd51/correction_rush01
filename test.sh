@@ -36,7 +36,7 @@ to_print "|             Setup                         |"
 to_print "============================================="
 
 to_exec_print rm ./checker_rush01
-to_exec_print wget https://github.com/alisterd51/checker_rush01/releases/download/v1.0.3/checker_rush01
+to_exec_print wget https://github.com/alisterd51/checker_rush01/releases/download/v1.0.4/checker_rush01
 to_exec_print chmod +x ./checker_rush01
 
 to_print "============================================="
